@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Organization} from '../../models/Organization';
+import {OrganizationListService} from '../../services/organization-list.service';
 
 @Component({
   selector: 'app-donate',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonateComponent implements OnInit {
 
-  constructor() { }
+  organizationList!: Observable<Organization[]>;
+
+
+  constructor(private organizationListService: OrganizationListService) { }
 
   ngOnInit(): void {
+    this.organizationList = this.organizationListService.getOrganizationList();
   }
 
 }
