@@ -16,7 +16,7 @@ exports.handler = async () => {
     const allOrganizations = results.map((organization) => {
       // & assigns its properties to output
       const output = {
-        name: organization.title,
+        name: organization.name,
         website: organization.website,
         donationAmount: organization.donationAmount,
         description: organization.shortDescription,
